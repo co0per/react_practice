@@ -1,0 +1,30 @@
+.vid-box {
+    list-style-type: none;
+    color: #f7f7f7;
+    margin: 1%;
+    height: 26vh;
+    box-shadow: black 0px 0px 4px 1px;
+}
+
+.vid-box:hover {
+    color: orange;
+    text-shadow: black 1px 2px;
+    cursor: pointer;
+}
+
+h3 {
+    margin: 0%
+}
+
+img, .vid-box-info {
+    display: inline-block;
+}
+
+img {
+    height: 26vh;
+}
+
+.vid-box-info {
+    padding: 2% 0% 2% 2%;
+    position: absolute;
+}

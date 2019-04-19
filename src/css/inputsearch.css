@@ -1,0 +1,31 @@
+.input-search {
+    display: inline;
+    position: absolute;
+    top: 3.5vh;
+    width: 50%;
+}
+
+input {
+    height: 3.5vh;
+    width: 44vh;
+    border: 2px solid white;
+    border-radius: 4px;
+    margin-right: 1%;
+    padding-left: 1%;
+    box-shadow: black 3px 4px;
+}
+
+.search-button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.fa-search {
+    color: white;
+    font-size: 3vh;
+}
+
+.fa-search:hover {
+    color: orange;
+    cursor: pointer;
+}
