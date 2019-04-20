@@ -9,21 +9,23 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      player: null,
       videoToPlay: null,
-      videos: []
+      videos: [],
+      hideVp: false
     };
   }
 
   manageVideosList = (e) => {
     this.setState({
-      videos: e
+      videos: e,
+      hideVp: true
     });
   }
 
   playVideo = (e) => {
     this.setState({
-      videoToPlay: e
+      videoToPlay: e,
+      hideVp: false
     });
   }
 
@@ -32,7 +34,9 @@ class App extends Component {
       <div>
         <Header manageVideosList={this.manageVideosList} />
         <div className="container">
-          {(this.state.videoToPlay) ? <VideoPlayer videoToPlay={this.state.videoToPlay} /> : null}
+          {(this.state.videoToPlay) 
+            ? <VideoPlayer videoToPlay={this.state.videoToPlay} hide={this.state.hideVp} /> 
+            : null}
           <VideoList videos={this.state.videos} playVideo={this.playVideo} />
         </div>
       </div>

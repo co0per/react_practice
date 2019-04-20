@@ -1,10 +1,11 @@
 export class Video {
-  constructor(id, title, description, img, date) {
+  constructor(id, title, description, img, date, owner) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.img = img;
     this.date = date;
+    this.owner = owner;
   }
 
   get_date() {

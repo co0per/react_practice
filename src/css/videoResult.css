@@ -10,6 +10,7 @@
     color: orange;
     text-shadow: black 1px 2px;
     cursor: pointer;
+    background-image: linear-gradient(to right,#5d2b00, #5d1e00);
 }
 
 h3 {
@@ -27,4 +28,5 @@ img {
 .vid-box-info {
     padding: 2% 0% 2% 2%;
     position: absolute;
+    width: 65%;
 }

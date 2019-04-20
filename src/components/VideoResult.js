@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../css/clickableVidBox.css';
+import '../css/videoResult.css';
 
-class ClickableVidBox extends Component {
+class VideoResult extends Component {
 
   playVideo = () => {
     this.props.playVideo(this.props.videoData);
@@ -14,10 +14,12 @@ class ClickableVidBox extends Component {
         <img src={vd.img} alt={vd.title} />
         <div className="vid-box-info">
           <h3>{vd.title}</h3>
+          {(vd.description) ? <p>{vd.description}</p> : <p><i>No description.</i></p>}
+          <p>{vd.owner}</p>
         </div>
       </li>
     );
   }
 }
 
-export default ClickableVidBox;
+export default VideoResult;

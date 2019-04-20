@@ -37,14 +37,14 @@ class InputSearch extends Component {
         
         axios.get(finalURL)
             .then((response) => {
-                console.log("chuchi", response.data.items);
                 const videosList = response.data.items.map((item) => {
                     return new Video(
                         item.id.videoId,
                         item.snippet.title,
                         item.snippet.description,
                         item.snippet.thumbnails.medium.url,
-                        item.snippet.publishedAt
+                        item.snippet.publishedAt,
+                        item.snippet.channelTitle
                     )
                 })
 

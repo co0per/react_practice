@@ -5,6 +5,7 @@ import '../css/videoPlayer.css';
 class VideoPlayer extends Component {
 
   componentDidUpdate() {
+    this.hideShow();
     this.newVideo();
   }
 
@@ -20,9 +21,16 @@ class VideoPlayer extends Component {
     }
   }
 
+  hideShow() {
+    if(this.props.hide) {
+      document.getElementsByClassName("video-player")[0].style.display = "none";
+    } else {
+      document.getElementsByClassName("video-player")[0].style.display = "block";
+    }
+  }
+
   componentDidMount () {
     const load_youtube = loadYoutubeApi();
-    
     load_youtube.then((YT) => {
       this.player = new YT.Player('player', {
         videoId: '',
