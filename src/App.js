@@ -11,33 +11,41 @@ class App extends Component {
     this.state = { 
       videoToPlay: null,
       videos: [],
-      hideVp: false
+      hideVp: false,
+      title: ''
     };
   }
 
-  manageVideosList = (e) => {
+  updateVideosList = (vl, t) => {
     this.setState({
-      videos: e,
-      hideVp: true
+      videos: vl,
+      hideVp: true,
+      title: t
     });
   }
 
   playVideo = (e) => {
+    window.scrollTo(0, 0);
     this.setState({
       videoToPlay: e,
-      hideVp: false
+      hideVp: false,
+      title: ''
     });
   }
 
   render() {
     return (
       <div>
-        <Header manageVideosList={this.manageVideosList} />
+        <Header updateVideosList={this.updateVideosList} />
         <div className="container">
           {(this.state.videoToPlay) 
             ? <VideoPlayer videoToPlay={this.state.videoToPlay} hide={this.state.hideVp} /> 
             : null}
-          <VideoList videos={this.state.videos} playVideo={this.playVideo} />
+          <VideoList
+            title={this.state.title}
+            videos={this.state.videos} 
+            playVideo={this.playVideo} 
+            updateVideosList={this.updateVideosList} />
         </div>
       </div>
     );

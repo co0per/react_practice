@@ -1,8 +1,12 @@
 .video-info {
     padding: 2% 0% 2% 2%;
-    position: absolute;
+    /*position: absolute;*/
     color: #f7f7f7;
-    width: 45%;
+    /*width: 45%;*/
+}
+
+#player {
+    width: 100%;
 }
 
 #player,.video-info {
@@ -13,3 +17,11 @@ h2 {
     margin: 0;
 }
 
+.show-des {
+    font-weight: 100
+}
+
+.show-des:hover {
+    color: orange;
+    cursor: pointer;
+}

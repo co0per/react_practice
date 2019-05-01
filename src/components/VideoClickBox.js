@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../css/videoResult.css';
+import '../css/videoClickBox.css';
 
-class VideoResult extends Component {
+class VideoClickBox extends Component {
 
   playVideo = () => {
     this.props.playVideo(this.props.videoData);
@@ -14,7 +14,12 @@ class VideoResult extends Component {
         <img src={vd.img} alt={vd.title} />
         <div className="vid-box-info">
           <h3>{vd.title}</h3>
-          {(vd.description) ? <p>{vd.description}</p> : <p><i>No description.</i></p>}
+          {(vd.description) 
+            ? (vd.description.lenght > 100
+              ? <p>{vd.description}</p> 
+              : <p>{vd.description.substring(0, 197) + "..."}</p>)
+            : <p className="no-description"><i>No description.</i></p>
+          }
           <p>{vd.owner}</p>
         </div>
       </li>
@@ -22,4 +27,4 @@ class VideoResult extends Component {
   }
 }
 
-export default VideoResult;
+export default VideoClickBox;

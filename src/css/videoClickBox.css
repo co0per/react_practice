@@ -30,3 +30,7 @@ img {
     position: absolute;
     width: 65%;
 }
+
+.no-description {
+    font-weight: 100;
+}

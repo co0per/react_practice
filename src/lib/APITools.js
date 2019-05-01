@@ -1,18 +1,6 @@
-export class Video {
-  constructor(id, title, description, img, date, owner) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-    this.img = img;
-    this.date = date;
-    this.owner = owner;
-  }
-
-  get_date() {
-    const yymmdd = this.date.split("-");
-    return `${yymmdd[0]} ${yymmdd[1]} ${yymmdd[2].substring(0, 2)}`;
-  }
-}
+const result = 4;
+export const APIkey = 'AIzaSyAOYG1Ai4mZy6L-ifZgQ8bzS87vA6v3JdA';
+export const trendingURL = `https://www.googleapis.com/youtube/v3/videos?key=${APIkey}&part=snippet&maxResults=${result}&chart=mostPopular`
 
 export function loadYoutubeApi() {
   let loadYT;

@@ -4,8 +4,8 @@ import '../css/header.css';
 
 class Header extends Component {
 
-  manageVideosList = (e) => {
-    this.props.manageVideosList(e);
+  updateVideosList = (vl, t) => {
+    this.props.updateVideosList(vl, t);
   }
 
   render() {
@@ -13,7 +13,7 @@ class Header extends Component {
         <header className="header">
           <h1>Cooper's tube</h1>
           <InputSearch 
-            manageVideosList={this.manageVideosList} 
+            updateVideosList={this.updateVideosList} 
           />
         </header>
     );

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../css/inputsearch.css';
-import {Video} from '../lib/loadApi.js';
+import {APIkey} from '../lib/APITools.js';
+import {Video} from '../lib/Video.js';
 
-const API = 'AIzaSyAOYG1Ai4mZy6L-ifZgQ8bzS87vA6v3JdA'
-const result = 3;
+const result = 10;
 
-let preliminarURL = `https://www.googleapis.com/youtube/v3/search?key=${API}&part=snippet&order=date&maxResults=${result}`
+let preliminarURL = `https://www.googleapis.com/youtube/v3/search?key=${APIkey}&part=snippet&order=date&maxResults=${result}`
 
 class InputSearch extends Component {
 
@@ -48,7 +48,7 @@ class InputSearch extends Component {
                     )
                 })
 
-                this.props.manageVideosList(videosList);
+                this.props.updateVideosList(videosList, "Search results");
             })
             .catch((error) => {
                 console.log(error);
