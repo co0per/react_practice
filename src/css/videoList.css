@@ -11,3 +11,10 @@
     font-weight: 100;
     font-style: italic;
 }
+
+@media (max-width: 400px) {
+    
+    .video-list-title {
+        text-align: center;
+    }
+}

@@ -29,3 +29,19 @@ input {
     color: orange;
     cursor: pointer;
 }
+
+@media (max-width: 400px) {
+
+    .input-search {
+        display: inline-flex;
+        position: unset;
+        width: 100%;
+        margin: 2% auto 3% auto;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        margin: 0 0 0 2%;
+    }
+}

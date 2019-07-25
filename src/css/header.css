@@ -17,3 +17,12 @@ h1 {
 h1, .fa-search {
     text-shadow: black 3px 4px;
 }
+
+@media (max-width: 400px) {
+    
+    h1 { 
+        display: block;
+        text-align: center;
+        margin: 0 0 1% 0;
+    }
+}
