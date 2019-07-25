@@ -18,7 +18,7 @@ export class Video {
       //day
       yymmdd[2] = yymmdd[2].substring(0, 2);
 
-      if(yymmdd[2].substring(0, 1) == "0"){
+      if(yymmdd[2].substring(0, 1) === "0"){
         yymmdd[2] = yymmdd[2].substring(1, 2);
 
         switch(yymmdd[2]) {
@@ -27,10 +27,13 @@ export class Video {
             break;
           case "2" :
             yymmdd[2] = "2nd";
-          break;
+            break;
           case "3" :
             yymmdd[2] = "3rd";
-          break;
+            break;
+          default :
+            yymmdd[2] = yymmdd[2] + "th";
+            break;
         }
       } else {
         yymmdd[2] = yymmdd[2] + "th"

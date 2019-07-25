@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import '../css/videoClickBox.css';
 
+import { connect } from 'react-redux'
+import { hidePlayer } from '../actions';
+
 class VideoClickBox extends Component {
 
   playVideo = () => {
+    this.props.hidePlayer(0);
     this.props.playVideo(this.props.videoData);
   }
 
@@ -27,4 +31,12 @@ class VideoClickBox extends Component {
   }
 }
 
-export default VideoClickBox;
+function mapDispatchToProps(dispatch) {
+  return {
+      hidePlayer: hp => dispatch(hidePlayer(hp))
+  }
+}
+
+const VCB = connect(null, mapDispatchToProps)(VideoClickBox);
+
+export default VCB;

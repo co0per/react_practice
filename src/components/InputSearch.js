@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../css/inputsearch.css';
-import {APIkey} from '../lib/APITools.js';
-import {Video} from '../lib/Video.js';
+import {APIkey} from '../lib/APITools';
+import {Video} from '../lib/Video';
+
+import { connect } from 'react-redux'
+import { updateVideoList, hidePlayer } from '../actions';
 
 const result = 10;
 
@@ -47,12 +50,17 @@ class InputSearch extends Component {
                         item.snippet.channelTitle
                     )
                 })
-
-                this.props.updateVideosList(videosList, "Search results");
+                this.props.hidePlayer(1);
+                this.props.updateTitle("Search results");
+                this.props.updateVideoList(videosList);
             })
             .catch((error) => {
                 console.log(error);
             });
+    }
+
+    onUpdateVideoList(event) {
+        this.props.onUpdateVideoList(event.target.value);
     }
 
     render() {
@@ -63,11 +71,20 @@ class InputSearch extends Component {
                     onChange={this.handleInput} 
                     onKeyPress={this.handleSubmitEnter} />
                 <button onClick={this.searchVideos} className="search-button">
-                    <i class="fas fa-search" />
+                    <i className="fas fa-search" />
                 </button>
             </div>
         );
     }
 }
 
-export default InputSearch;
+function mapDispatchToProps(dispatch) {
+    return {
+        updateVideoList: vl => dispatch(updateVideoList(vl)),
+        hidePlayer: hp => dispatch(hidePlayer(hp))
+    }
+}
+
+const Input = connect(null, mapDispatchToProps)(InputSearch);
+
+export default Input;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './components/Header.js';
-import VideoPlayer from './components/VideoPlayer.js';
-import VideoList from './components/VideoList.js';
+import Header from './components/Header';
+import VideoPlayer from './components/VideoPlayer';
+import VideoList from './components/VideoList';
 import './css/app.css';
 
 class App extends Component {
@@ -16,10 +16,8 @@ class App extends Component {
     };
   }
 
-  updateVideosList = (vl, t) => {
+  updateTitle = (t) => {
     this.setState({
-      videos: vl,
-      hideVp: true,
       title: t
     });
   }
@@ -27,16 +25,16 @@ class App extends Component {
   playVideo = (e) => {
     window.scrollTo(0, 0);
     this.setState({
-      videoToPlay: e,
-      hideVp: false,
-      title: ''
+      videoToPlay: e
     });
   }
 
   render() {
     return (
       <div>
-        <Header updateVideosList={this.updateVideosList} />
+        <Header 
+          updateTitle={this.updateTitle} 
+        />
         <div className="container">
           {(this.state.videoToPlay) 
             ? <VideoPlayer videoToPlay={this.state.videoToPlay} hide={this.state.hideVp} /> 
@@ -45,7 +43,7 @@ class App extends Component {
             title={this.state.title}
             videos={this.state.videos} 
             playVideo={this.playVideo} 
-            updateVideosList={this.updateVideosList} />
+            updateTitle={this.updateTitle} />
         </div>
       </div>
     );

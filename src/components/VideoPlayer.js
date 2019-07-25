@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import {loadYoutubeApi} from '../lib/APITools.js';
+import {loadYoutubeApi} from '../lib/APITools';
 import '../css/videoPlayer.css';
+
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => {
+	return { videoPlayer: state.videoPlayer };
+  };
 
 class VideoPlayer extends Component {
 
@@ -12,7 +18,6 @@ class VideoPlayer extends Component {
   	}
 
   	componentWillReceiveProps(nextProps) {
-		this.hideShowPlayer();
     	this.newVideo(nextProps.videoToPlay);
   	}
 
@@ -31,32 +36,34 @@ class VideoPlayer extends Component {
 		this.player.playVideo();
 	}
 
-	hideShowPlayer = () => {
-		if(this.props.hide) {
-		document.getElementsByClassName("video-player")[0].style.display = "none";
-		} else {
-		document.getElementsByClassName("video-player")[0].style.display = "block";
-		}
-	}
-
-	componentDidMount () {
+	componentDidMount() {
 		const load_youtube = loadYoutubeApi();
 		load_youtube.then((YT) => {
-		this.player = new YT.Player('player', {
-			videoId: '',
-			height: 390,
-			width: 640,
-			playerVars: {
-			rel: 0,
-			modestbranding: 1
-			},
-			events: {
-			'onReady': this.onPlayerReady.bind(this)/*,
-			'onStateChange': this.onPlayerStateChange.bind(this),
-			'onError': this.onPlayerError.bind(this)*/
-			}
+			this.player = new YT.Player('player', {
+				videoId: '',
+				height: 390,
+				width: 640,
+				playerVars: {
+				rel: 0,
+				modestbranding: 1
+				},
+				events: {
+				'onReady': this.onPlayerReady.bind(this)/*,
+				'onStateChange': this.onPlayerStateChange.bind(this),
+				'onError': this.onPlayerError.bind(this)*/
+				}
+			})
 		})
-		})
+	}
+
+	componentDidUpdate() {
+		let video_player = document.getElementsByClassName("video-player")[0];
+		if(this.props.videoPlayer.hideVideoPlayer) {
+			video_player.style.display = "none";
+			this.player.pauseVideo();
+		} else {
+			video_player.style.display = "block";
+		}
 	}
 
 	showDescription = () => {
@@ -70,7 +77,6 @@ class VideoPlayer extends Component {
 			})
 		}
 	}
-
 
 	render() {
 		const v = this.props.videoToPlay;
@@ -99,5 +105,7 @@ class VideoPlayer extends Component {
 		);
 	}
 }
-
-export default VideoPlayer;
+  
+  const VP = connect(mapStateToProps)(VideoPlayer);
+  
+  export default VP;
