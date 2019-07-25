@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
 	return { videoPlayer: state.videoPlayer };
-  };
+};
 
 class VideoPlayer extends Component {
 

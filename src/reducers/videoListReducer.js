@@ -1,7 +1,8 @@
-import { UPDATE_LIST } from '../actions'
+import { UPDATE_LIST, VL_TITLE } from '../actions'
 
 export const initialState = {
-    videos: []
+    videos: [],
+    title: 'Trending videos'
 };
 
 export default function videoListReducer(state = initialState, action) {
@@ -9,6 +10,10 @@ export default function videoListReducer(state = initialState, action) {
         case UPDATE_LIST: 
             return Object.assign({}, state, {
                 videos: action.payload.videoList 
+            });
+        case VL_TITLE:
+            return Object.assign({}, state, {
+                title: action.payload.title 
             });
         default:
             return state

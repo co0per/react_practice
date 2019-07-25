@@ -5,7 +5,7 @@ import {APIkey} from '../lib/APITools';
 import {Video} from '../lib/Video';
 
 import { connect } from 'react-redux'
-import { updateVideoList, hidePlayer } from '../actions';
+import { updateVideoList, updateVideoListTitle, hidePlayer } from '../actions';
 
 const result = 10;
 
@@ -51,7 +51,7 @@ class InputSearch extends Component {
                     )
                 })
                 this.props.hidePlayer(1);
-                this.props.updateTitle("Search results");
+                this.props.updateVideoListTitle("Search results");
                 this.props.updateVideoList(videosList);
             })
             .catch((error) => {
@@ -81,6 +81,7 @@ class InputSearch extends Component {
 function mapDispatchToProps(dispatch) {
     return {
         updateVideoList: vl => dispatch(updateVideoList(vl)),
+        updateVideoListTitle: t => dispatch(updateVideoListTitle(t)),
         hidePlayer: hp => dispatch(hidePlayer(hp))
     }
 }

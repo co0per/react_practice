@@ -6,10 +6,12 @@ import {Video} from '../lib/Video';
 import axios from 'axios';
 
 import { connect } from 'react-redux'
-import { updateVideoList } from '../actions';
+import { updateVideoList, updateVideoListTitle } from '../actions';
 
 const mapStateToProps = state => {
-  return { videos: state.videos };
+  return { 
+      videos: state.videos
+    };
 };
 
 class VideoList extends Component {
@@ -31,7 +33,7 @@ class VideoList extends Component {
                   item.snippet.channelTitle
               )
           })
-          this.props.updateTitle("Trending videos");
+          this.props.updateVideoListTitle("Trending videos");
           this.props.updateVideoList(videosList);
       })
       .catch((error) => {
@@ -51,7 +53,7 @@ class VideoList extends Component {
 
     return (
       <div>
-        <h2 className="video-list-title">{this.props.title}</h2> 
+        <h2 className="video-list-title">{this.props.videos.title}</h2> 
         <ul className="video-list" >
           {videosLi}
         </ul>
@@ -62,7 +64,8 @@ class VideoList extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-      updateVideoList: vl => dispatch(updateVideoList(vl))
+      updateVideoList: vl => dispatch(updateVideoList(vl)),
+      updateVideoListTitle: t => dispatch(updateVideoListTitle(t))
   }
 }
 
