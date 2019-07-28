@@ -1,65 +1,66 @@
 .vid-box {
-    list-style-type: none;
-    color: #f7f7f7;
-    margin: 1%;
-    height: 26vh;
-    box-shadow: black 0px 0px 4px 1px;
+  list-style-type: none;
+  color: #f7f7f7;
+  margin: 1%;
+  height: 26vh;
+  box-shadow: black 0px 0px 4px 1px;
 }
 
 .vid-box:hover {
-    color: orange;
-    text-shadow: black 1px 2px;
-    cursor: pointer;
-    background-image: linear-gradient(to right,#5d2b00, #5d1e00);
+  color: orange;
+  text-shadow: black 1px 2px;
+  cursor: pointer;
+  background-image: linear-gradient(to right, #5d2b00, #5d1e00);
 }
 
 h3 {
-    margin: 0%
+  margin: 0%;
 }
 
 img, .vid-box-info {
-    display: inline-block;
+  display: inline-block;
 }
 
 img {
-    height: 26vh;
+  height: 26vh;
 }
 
 .vid-box-info {
-    padding: 2% 0% 2% 2%;
-    position: absolute;
-    width: 65%;
+  padding: 2% 0% 2% 2%;
+  position: absolute;
+  width: 65%;
 }
 
 .no-description {
-    font-weight: 100;
+  font-weight: 100;
 }
 
 @media (max-width: 400px) {
-    
-    h3 {
-        font-weight: 400;
-        font-size: 2.5vh;
-        width: unset;
-    }
+  h3 {
+    font-weight: 400;
+    font-size: 2.5vh;
+    width: unset;
+  }
 
-    img {
-        width: 100%;
-        display: block;
-        height: unset;
-    }
+  img {
+    width: 100%;
+    display: block;
+    height: unset;
+  }
 
-    .vid-box-info p {
-        display: none;
-    }
+  .vid-box-info p {
+    display: none;
+  }
 
-    .vid-box-info {
-        padding: 2% 0% 0% 2%;
-    }
+  .vid-box-info {
+    padding: 2% 0% 0% 2%;
+  }
 
-    .vid-box {
-        height: 18em;
-        margin-bottom: 5%;
-        display: block;
-    }
+  .vid-box {
+    height: 18em;
+    margin-bottom: 5%;
+    display: block;
+  }
 }
+
+/*# sourceMappingURL=videoClickBox.css.map */

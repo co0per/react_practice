@@ -1,0 +1,31 @@
+@import 'style';
+
+header {
+    padding: 1%;
+    background-color: $background-color;
+    box-shadow: black 2px 2px 4px 1px;
+}
+
+h1 {
+    font-style: italic;
+    margin-right: 1.5%;
+    font-family: 'Monofett';
+    font-weight: 100;
+    color: $primary-color;
+    font-size: 6vh;
+    display: inline;
+}
+
+h1, 
+.fa-search {
+    text-shadow: $black-shadow;
+}
+
+@media (max-width: 400px) {
+    
+    h1 { 
+        display: block;
+        text-align: center;
+        margin: 0 0 1% 0;
+    }
+}

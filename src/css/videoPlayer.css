@@ -1,25 +1,27 @@
 .video-info {
-    padding: 2% 0% 2% 2%;
-    color: #f7f7f7;
+  padding: 2% 0% 2% 2%;
+  color: #f7f7f7;
 }
 
 #player {
-    width: 100%;
+  width: 100%;
 }
 
-#player,.video-info {
-    display: inline-block;
+#player, .video-info {
+  display: inline-block;
 }
 
 h2 {
-    margin: 0;
+  margin: 0;
 }
 
 .show-des {
-    font-weight: 100
+  font-weight: 100;
 }
 
 .show-des:hover {
-    color: orange;
-    cursor: pointer;
+  color: orange;
+  cursor: pointer;
 }
+
+/*# sourceMappingURL=videoPlayer.css.map */

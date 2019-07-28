@@ -1,47 +1,48 @@
 .input-search {
-    display: inline;
-    position: absolute;
-    top: 3.5vh;
-    width: 50%;
+  display: inline;
+  position: absolute;
+  top: 3.5vh;
+  width: 50%;
 }
 
 input {
-    height: 3.5vh;
-    width: 80%;
-    border: 2px solid white;
-    border-radius: 4px;
-    margin-right: 1%;
-    padding-left: 1%;
-    box-shadow: black 3px 4px;
+  height: 3.5vh;
+  width: 80%;
+  border: 2px solid white;
+  border-radius: 4px;
+  margin-right: 1%;
+  padding-left: 1%;
+  box-shadow: black 3px 4px;
 }
 
 .search-button {
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
 }
 
 .fa-search {
-    color: white;
-    font-size: 3vh;
+  color: white;
+  font-size: 3vh;
 }
 
 .fa-search:hover {
-    color: orange;
-    cursor: pointer;
+  color: orange;
+  cursor: pointer;
 }
 
 @media (max-width: 400px) {
+  .input-search {
+    display: inline-flex;
+    position: unset;
+    width: 100%;
+    margin: 2% auto 3% auto;
+  }
 
-    .input-search {
-        display: inline-flex;
-        position: unset;
-        width: 100%;
-        margin: 2% auto 3% auto;
-    }
-
-    input {
-        display: block;
-        width: 100%;
-        margin: 0 0 0 2%;
-    }
+  input {
+    display: block;
+    width: 100%;
+    margin: 0 0 0 2%;
+  }
 }
+
+/*# sourceMappingURL=inputsearch.css.map */
